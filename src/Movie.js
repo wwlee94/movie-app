@@ -20,7 +20,7 @@ function Movie({ title, poster, genres, synopsis, rating }) {
                     <div>
                         <BeautyStars value={Number(rate)} size={20} />
                     </div>
-                    <div> {rate} / 5.0 Point </div>
+                    <div> {rate.toFixed(2)} / 5.0 Point </div>
                 </div>
                 <div className="Movie__Genres">
                     {genres.map((genre, index) => <MovieGenre key={index} genre={genre} />)}

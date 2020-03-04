@@ -62,12 +62,14 @@
     box-shadow: -10px 19px 38px rgba(83, 83, 83, 0.3), 10px 15px 12px rgba(80,80,80,0.22);
 }
 
+/* 모바일 폰 */
 @media screen and (min-width:320px) and (max-width:667px){
     .Movie{
         width:100%;
     }
 }
 
+/* 모바일 portrait */
 @media screen and (min-width:320px) and (max-width:667px) and (orientation: portrait){
     .Movie{
         width:100%;
