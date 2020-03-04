@@ -57,11 +57,16 @@ class App extends Component {
 
   //데이터가 없을 때 로딩을 띄우고, 있으면 영화 정보가 보이도록
   _renderMovies = () => {
-    /* js의 map 기능 -> 조건에 따른 새로운 배열을 만들어줌 
-       map의 index 불러오면 성능이 상대적으로 느려짐
-    */
+    // js의 map 기능 -> 조건에 따른 새로운 배열을 만들어줌 
     const movies = this.state.movies.map((movie, index) => {
-      return <Movie title={movie.title} poster={movie.large_cover_image} key={movie.id} />
+      return <Movie 
+        key={movie.id}
+        title={movie.title_long}
+        poster={movie.medium_cover_image}
+        genres={movie.genres}
+        synopsis={movie.synopsis}
+        rating={movie.rating}
+      />
     })
     return movies
   }
