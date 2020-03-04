@@ -47,7 +47,7 @@ class App extends Component {
 
   _callApi = async () => {
     try {
-      const response = await fetch("https://yts.mx/api/v2/list_movies.json?sort_by=like_count") 
+      const response = await fetch("https://yts.mx/api/v2/list_movies.json?sort_by=like_count")
       const json = await response.json();
       return json.data.movies
     } catch (error) {
@@ -59,10 +59,10 @@ class App extends Component {
   _renderMovies = () => {
     // js의 map 기능 -> 조건에 따른 새로운 배열을 만들어줌 
     const movies = this.state.movies.map((movie, index) => {
-      return <Movie 
+      return <Movie
         key={movie.id}
         title={movie.title_long}
-        poster={movie.medium_cover_image}
+        poster={movie.large_cover_image}
         genres={movie.genres}
         synopsis={movie.synopsis}
         rating={movie.rating}
@@ -72,9 +72,10 @@ class App extends Component {
   }
 
   render() {
+    const { movies } = this.state
     return (
-      <div className="App">
-        {this.state.movies ? this._renderMovies() : "Loading"}
+      <div className={this.state.movies ? "App" : "App--loading"}>
+        {this.state.movies ? this._renderMovies() : "Loading ..."}
       </div>
     )
   }

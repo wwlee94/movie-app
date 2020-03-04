@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import LinesEllipsis from 'react-lines-ellipsis'
 import './Movie.css'
 
 // PropTypes 모듈 -> 부모 컴포넌트로부터 넘어오는 변수의 타입 검사해줌
@@ -9,17 +10,17 @@ function Movie({ title, poster, genres, synopsis, rating }) {
     return (
         // JSX는 class X, className O
         <div className="Movie">
-            <div className="Movie__Columns">
+            <div className="Movie__Column">
                 <MoviePoster poster={poster} alt={title}/>
             </div>
-            <div className="Movie__Columns">
+            <div className="Movie__Column">
                 <h1>{title}</h1>
                 <div className="Movie__Genres">
                     {genres.map((genre, index) => <MovieGenre key={index} genre={genre} />)}
                 </div>
-                <p className="Movie__Synopsis">
+                <div className="Movie__Synopsis">
                     {synopsis}
-                </p>
+                </div>
             </div>
         </div>
     )
