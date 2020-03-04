@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Movie.css'
+import './Movie.css';
+import BeautyStars from 'beauty-stars';
 
 // PropTypes 모듈 -> 부모 컴포넌트로부터 넘어오는 변수의 타입 검사해줌
 
 // Functional 컴포넌트
 function Movie({ title, poster, genres, synopsis, rating }) {
+    const rate = getRating(rating)
     return (
         // JSX는 class X, className O
         <div className="Movie">
             <div className="Movie__Column">
-                <MoviePoster poster={poster} alt={title}/>
+                <MoviePoster poster={poster} alt={title} />
             </div>
             <div className="Movie__Column">
                 <h1>{title}</h1>
+                <div className="Movie__Rating">
+                    <div>
+                        <BeautyStars value={Number(rate)} size={20} />
+                    </div>
+                    <div> {rate} / 5.0 Point </div>
+                </div>
                 <div className="Movie__Genres">
                     {genres.map((genre, index) => <MovieGenre key={index} genre={genre} />)}
                 </div>
@@ -36,6 +44,10 @@ function MovieGenre({ genre }) {
     return (
         <span className="Movie__Genre">{genre}</span>
     )
+}
+
+function getRating(rating) {
+    return (rating / 10) / 2 * 10
 }
 
 Movie.propTypes = {

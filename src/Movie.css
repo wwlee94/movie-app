@@ -25,7 +25,11 @@
 .Movie h1{
     font-size:20px;
     font-weight: 600;
-    margin-top: 5px;
+    margin: 4 0px;
+}
+.Movie .Movie__Rating div{
+    padding: 5px 0;
+    color:#B4B5BD;
 }
 
 .Movie .Movie__Genres{
