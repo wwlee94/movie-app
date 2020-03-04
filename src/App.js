@@ -24,6 +24,10 @@ const movies = [
 function App() {
   return (
     <div className="App">
+      {/* js의 map 기능 -> 조건에 따른 새로운 배열을 만들어줌 */}
+      {movies.map((movie, index) => { 
+        return <Movie title={movie.title} poster={movie.poster} key={index}/>
+      })}
     </div>
   )
 }
