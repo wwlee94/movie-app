@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import './Movie.css'
 
 class Movie extends Component {
+    // 부모 컴포넌트로부터 넘어오는 변수의 타입 검사해줌
     static propTypes = {
-        title: PropTypes.string,
-        poster: PropTypes.string
+        title: PropTypes.string.isRequired,
+        poster: PropTypes.string.isRequired
     }
 
     render() { 
@@ -19,6 +20,9 @@ class Movie extends Component {
 }
 
 class MoviePoster extends Component {
+    static propTypes = {
+        poster: PropTypes.string.isRequired
+    }
     render() {
         return (
             <img src={this.props.poster} />
