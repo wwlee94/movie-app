@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import LinesEllipsis from 'react-lines-ellipsis'
 import './Movie.css'
 
 // PropTypes 모듈 -> 부모 컴포넌트로부터 넘어오는 변수의 타입 검사해줌
