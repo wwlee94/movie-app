@@ -16,7 +16,7 @@ import Movie from './Movie';
 class App extends Component {
   state = {
     greeting: "hello",
-    movies : [
+    movies: [
       {
         title: "React",
         poster: "https://blog.itpaper.co.kr/attach/40-frontend-react/logo.jpg"
@@ -42,25 +42,31 @@ class App extends Component {
       // Ex) this.state.greeting = 'Something'
       // 새로운 영화 추가
       this.setState({
-        movies:[
+        movies: [
           ...this.state.movies, // '...'의미는 이전 리스트는 그대로 두고, 한개를 추가한다는 뜻
           {
             title: "This is a New Movie",
             poster: "https://mblogthumb-phinf.pstatic.net/MjAxODAzMDRfNDIg/MDAxNTIwMTQ4ODYzNTI1.pafkG0llpCTnavxBCXoBl4stv5nDS3P-Xcj5CbZF9c8g.Eai6_HfOtmc45TPcoi4rZr0vQk0pu_LRvjigYShqu50g.PNG.feel940/image_1154452801520148641525.png?type=w800"
           }
-          // ...this.state.movies // 이렇게하면 새로운 데이터는 위에 생성됨
+          // ...this.state.movies // 이렇게하면 새로운 데이터는 위에 생성
         ]
       })
     }, 2000)
   }
 
+  //데이터가 없을 때 로딩을 띄우고, 있으면 영화 정보가 보이도록
+  _renderMovies = () => {
+    /* js의 map 기능 -> 조건에 따른 새로운 배열을 만들어줌 */
+    const movies = this.state.movies.map((movie, index) => {
+      return <Movie title={movie.title} poster={movie.poster} key={index} />
+    })
+    return movies
+  }
+  
   render() {
     return (
       <div className="App">
-        {/* js의 map 기능 -> 조건에 따른 새로운 배열을 만들어줌 */}
-        {this.state.movies.map((movie, index) => {
-          return <Movie title={movie.title} poster={movie.poster} key={index} />
-        })}
+        {this.state.movies ? this._renderMovies() : "Loading"}
       </div>
     )
   }
