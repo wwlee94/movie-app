@@ -14,7 +14,4 @@ YIFY Torrents 또는 YTS는 BitTorrent를 통해 수많은 영화를 무료 다�
 ![결과 페이지](./public/SMTM.png)
 
 ## 동작 화면
-### 1. 웹
-![동작 과정 - 웹](./public/SMTM-desktop.gif)
-### 2. 모바일
 ![동작 과정 - 모바일](./public/SMTM-mobile.gif)
