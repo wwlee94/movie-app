@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import './loader.scss';
 import Movie from './Movie';
+import Loader from 'react-loaders'
 
 /*
   - 리액트 사이클 -
@@ -62,7 +64,7 @@ class App extends Component {
       return <Movie
         key={movie.id}
         title={movie.title_long}
-        poster={movie.large_cover_image}
+        poster={movie.medium_cover_image}
         genres={movie.genres}
         synopsis={movie.synopsis}
         rating={movie.rating}
@@ -71,11 +73,15 @@ class App extends Component {
     return movies
   }
 
+  _renderLoader = () => {
+    return <Loader type="pacman" />
+  }
+
   render() {
     const { movies } = this.state
     return (
       <div className={this.state.movies ? "App" : "App--loading"}>
-        {this.state.movies ? this._renderMovies() : "Loading ..."}
+        {this.state.movies ? this._renderMovies() : this._renderLoader()}
       </div>
     )
   }
